@@ -3,7 +3,7 @@ import PageTransition from '../components/PageTransition.jsx'
 import Footer from '../components/Footer.jsx'
 import ImageCard from '../components/ImageCard.jsx'
 
-// Manually curated lookbook items
+// Curated studio lookbook items
 const LOOKBOOK_ITEMS = [
   { id: 1, imageUrl: '/lookbook/1.jpg', href: 'https://www.shopify.com' },
   { id: 2, imageUrl: '/lookbook/2.jpg', href: 'https://www.shopify.com' },
@@ -14,50 +14,55 @@ const LOOKBOOK_ITEMS = [
   { id: 7, imageUrl: '/lookbook/7.jpg', href: 'https://www.shopify.com' },
   { id: 8, imageUrl: '/lookbook/8.jpg', href: 'https://www.shopify.com' },
   { id: 9, imageUrl: '/lookbook/9.jpg', href: 'https://www.shopify.com' },
+  { id: 10, imageUrl: '/lookbook/10.jpg', href: 'https://www.shopify.com' },
+  { id: 11, imageUrl: '/lookbook/11.jpg', href: 'https://www.shopify.com' },
+  { id: 12, imageUrl: '/lookbook/12.jpg', href: 'https://www.shopify.com' },
+  { id: 13, imageUrl: '/lookbook/13.jpg', href: 'https://www.shopify.com' },
+  { id: 14, imageUrl: '/lookbook/14.jpg', href: 'https://www.shopify.com' },
+  { id: 15, imageUrl: '/lookbook/15.jpg', href: 'https://www.shopify.com' },
+  { id: 16, imageUrl: '/lookbook/16.jpg', href: 'https://www.shopify.com' },
+  { id: 17, imageUrl: '/lookbook/17.jpg', href: 'https://www.shopify.com' },
+  { id: 18, imageUrl: '/lookbook/18.jpg', href: 'https://www.shopify.com' },
+  { id: 19, imageUrl: '/lookbook/19.jpg', href: 'https://www.shopify.com' },
+  { id: 20, imageUrl: '/lookbook/20.jpg', href: 'https://www.shopify.com' },
 ]
 
 function Lookbook() {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0 })
   }, [])
 
   return (
     <PageTransition>
-      <div className="flex min-h-screen flex-col bg-black text-neutral-100">
-        <main className="flex-1">
-          <section className="mx-auto max-w-6xl px-6 pb-24 pt-12">
-            {/* Intro */}
-            <div className="mb-16 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <div className="max-w-xl">
-                <p className="text-xs uppercase tracking-[0.35em] text-neutral-500">
-                  Lookbook 23 — Studio Preview
-                </p>
-                <h2 className="mt-4 text-xl font-medium text-neutral-50">
-                  A controlled beginning.
-                </h2>
-                <p className="mt-4 text-sm leading-relaxed text-neutral-400">
-                  This first chapter is quiet by design. Shot in studio, under
-                  deliberate light, the pieces are presented without context,
-                  without distraction. Form, fabric, and intention come first.
-                  The noise will come later.
-                </p>
-              </div>
+      <div className="min-h-screen bg-black text-neutral-100">
+        <main>
+          {/* Intro */}
+          <section className="mx-auto max-w-6xl px-6 pt-20 pb-24">
+            <p className="text-xs uppercase tracking-[0.4em] text-neutral-400">
+              Lookbook 23 — Studio Series
+            </p>
+            <h1 className="mt-6 max-w-3xl text-4xl sm:text-5xl font-medium leading-tight text-neutral-50">
+              A controlled space. Clean light.
+              <span className="block">Every detail intentional.</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-sm text-neutral-300 leading-relaxed">
+              This first chapter of 23 is shot entirely in-studio. No distractions,
+              no noise — just form, texture, and presence. These pieces aren’t styled
+              to shout. They’re designed to stay with you.
+            </p>
+          </section>
 
-              <p className="max-w-xs text-[0.75rem] leading-relaxed text-neutral-500">
-                These images are not the final world of 23 — they are the
-                foundation. Clean frames, honest silhouettes, and garments
-                shown as objects before they become stories.
-              </p>
-            </div>
-
-            {/* Editorial grid */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* Grid */}
+          <section className="mx-auto max-w-6xl px-6 pb-32">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {LOOKBOOK_ITEMS.map((item, index) => (
                 <div
                   key={item.id}
                   className={
-                    index % 5 === 0
-                      ? 'sm:col-span-2 lg:col-span-2 lg:row-span-2'
+                    index === 0
+                      ? 'sm:col-span-2 lg:col-span-3'
+                      : index === 4
+                      ? 'sm:col-span-2'
                       : ''
                   }
                 >
@@ -69,37 +74,32 @@ function Lookbook() {
                 </div>
               ))}
             </div>
+          </section>
 
-            {/* Extended editorial footer section */}
-            <div className="mx-auto mt-32 max-w-3xl text-center">
-              <p className="text-xs uppercase tracking-[0.35em] text-neutral-500">
-                About this release
+          {/* Editorial Footer */}
+          <section className="mx-auto max-w-6xl px-6 pb-32">
+            <div className="max-w-2xl space-y-6">
+              <h2 className="text-xl font-medium text-neutral-50">
+                This is only the beginning.
+              </h2>
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                Future chapters of 23 will move beyond the studio — into streets,
+                after-hours spaces, and lived-in moments. For now, this collection
+                exists as a foundation. Pure silhouettes. Quiet confidence.
               </p>
+              <p className="text-sm text-neutral-300 leading-relaxed">
+                Each piece carries a unique barcode, unlocking a single creative
+                story. What you wear is no longer just what people see — it’s what
+                they can access.
 
-              <h3 className="mt-6 text-lg font-medium text-neutral-50">
-                Before the streets, before the noise.
-              </h3>
+                NOTE :
 
-              <p className="mt-6 text-sm leading-relaxed text-neutral-400">
-                Every piece shown here is part of a larger system. Each garment
-                carries a unique barcode — a key that unlocks a single creative
-                world. Music, visuals, writing, film. One shirt, one craft.
-              </p>
-
-              <p className="mt-4 text-sm leading-relaxed text-neutral-400">
-                This studio shoot exists to document the garments in their
-                purest state. No narrative imposed. No environment influencing
-                interpretation. What you see here is the canvas — not the
-                artwork that will eventually live inside it.
-              </p>
-
-              <p className="mt-4 text-sm leading-relaxed text-neutral-400">
-                Future lookbooks will move outward: into rooms, into movement,
-                into people. For now, this is the pause before impact.
-              </p>
-
-              <p className="mt-10 text-xs uppercase tracking-[0.3em] text-neutral-500">
-                23 is not worn to be seen. It is worn to be accessed.
+                ITAMERIN TO LONDON BY W3STIX AND INFAMOUS IS A SONG ABOUT MOVEMENT, ELEVATION, AND THE HUNGER TO RISE. IT TELLS A HUSTLER'S JOURNEY FROM HUMBLE BEGINNINGS TO BIGGER STAGES, MIXING STREET ROOTS WITH DREAMS OF INTERNATIONAL SUCCESS. LONDON ISN'T JUST A PLACE, IT REPRESENTS LEVELING UP.
+                THE SONG BLENDS:
+                REAL STRUGGLE → CONFIDENCE
+                STREET ENERGY → SOFT LIFE AMBITION
+                GROWTH MENTALLY, FINANCIALLY, AND GLOBALLY
+                OVERALL, IT'S A SOUNDTRACK FOR ANYONE MOVING FROM WHERE THEY STARTED TO WHERE THEY'RE DESTINED TO BE.
               </p>
             </div>
           </section>
