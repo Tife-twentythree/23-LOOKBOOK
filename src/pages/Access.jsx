@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import PageTransition from "../components/PageTransition.jsx";
 
@@ -35,16 +35,17 @@ function Access() {
     }
 
     try {
-      await setDoc(doc(db, "subscribers", email.toLowerCase()), {
-        email,
+      await addDoc(collection(db, "subscribers"), {
+        email: email.toLowerCase(),
         phone,
         createdAt: serverTimestamp(),
       });
-
-      navigate("/lookbook");
     } catch (error) {
       console.error("Error saving subscriber:", error);
+      // Access should NEVER fail even if logging fails
     }
+
+    navigate("/lookbook");
   };
 
   return (
